@@ -18,13 +18,18 @@ let
     # the haskell.nix functionality itself as an overlay.
     haskellNix.nixpkgsArgs;
 in 
-# { withCoverage ? false }:
 pkgs.haskell-nix.project {
   # 'cleanGit' cleans a source directory based on the files known by git
   src = pkgs.haskell-nix.haskellLib.cleanGit {
     name = "haskell-nix-project";
     src = ./.;
   };
+
+  modules = [{
+    # options.nonReinstallablePkgs =
+    #   pkgs.lib.mkOption { apply = pkgs.lib.remove "time"; };
+    reinstallableLibGhc = true;
+  }];
 
   # modules = pkgs.lib.optional withCoverage [{
   #   packages..pkg.components.library.doCoverage = true;
