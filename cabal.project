@@ -1,1 +1,9 @@
 packages: myApp/haskellnixdockerrepro.cabal
+
+-- sha256 is for haskell.nix: https://input-output-hk.github.io/haskell.nix/tutorials/source-repository-hashes.html
+source-repository-package
+    type: git
+    location: https://github.com/bsaul/haskellnix-repro2
+    tag: 51a80ef464e5f48e9c17c0f584923aab901d9af2
+    --sha256: 095vsnakbgf650wm3rgwaliwhlgcb4ybmmx25fs25mr65h0kvw39
+
